@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.5.10</version>
     </parent>
     <groupId>top.houyuji</groupId>
     <artifactId>easy-admin</artifactId>
@@ -19,7 +19,9 @@
         <module>modules</module>
     </modules>
     <properties>
-        <revision>0.0.1-SNAPSHOT</revision>
+        <!-- 版本号：日期格式，打包时 maven.build.timestamp 为当前构建时间 -->
+        <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+        <revision>${maven.build.timestamp}</revision>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -28,10 +30,10 @@
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
 
-        <spring-boot.version>3.3.4</spring-boot.version>
-        <spring-boot-test.version>3.3.4</spring-boot-test.version>
-        <spring-boot-validation.version>3.3.5</spring-boot-validation.version>
-        <spring-boot-aop.version>3.4.0</spring-boot-aop.version>
+        <spring-boot.version>3.5.10</spring-boot.version>
+        <spring-boot-test.version>3.5.10</spring-boot-test.version>
+        <spring-boot-validation.version>3.5.10</spring-boot-validation.version>
+        <spring-boot-aop.version>3.5.10</spring-boot-aop.version>
         <junit-jupiter-api.version>5.10.3</junit-jupiter-api.version>
         <mybatis-plus.version>3.5.8</mybatis-plus.version>
         <hutool.version>5.8.27</hutool.version>
@@ -55,7 +57,7 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
-            <!-- spring boot 3.3.4 -->
+            <!-- spring boot 3.5.10 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

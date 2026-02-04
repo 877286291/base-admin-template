@@ -1,0 +1,11 @@
+# 忽略各模块 target，仅保留 admin 打包产物供镜像使用
+**/target/
+!admin/target/
+.git/
+.gitignore
+*.iml
+.idea/
+.mvn/wrapper/*.jar
+*.md
+docker/.dockerignore
+docker/docker-compose*.yml

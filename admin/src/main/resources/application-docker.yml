@@ -1,0 +1,40 @@
+# Docker 部署环境配置，由 docker-compose 提供 MySQL/Redis 服务名
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:mysql}:3306/${MYSQL_DATABASE:easy_admin}?serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 0
+      timeout: 10s
+      lettuce:
+        pool:
+          max-active: 200
+          max-wait: -1ms
+          max-idle: 10
+          min-idle: 0
+
+logging:
+  level:
+    root: info
+    top.houyuji: info
+
+easy:
+  admin:
+    cache:
+      enabled: true
+      prefix: "easy_admin"
+
+sa-token:
+  token-name: easy_admin
+  timeout: 86400
+  active-timeout: -1
+  is-concurrent: true
+  is-share: true
+  token-style: tik
+  is-log: true

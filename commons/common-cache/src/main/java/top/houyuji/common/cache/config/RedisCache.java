@@ -30,7 +30,7 @@ public class RedisCache implements ICache {
     public Set<String> scanKeys(String pattern) {
         Set<String> keys = new HashSet<>();
         redisTemplate.execute((RedisCallback<Object>) connection -> {
-            Cursor<byte[]> cursor = connection.scan(ScanOptions.scanOptions().match(pattern).count(1000).build());
+            Cursor<byte[]> cursor = connection.keyCommands().scan(ScanOptions.scanOptions().match(pattern).count(1000).build());
             while (cursor.hasNext()) {
                 keys.add(new String(cursor.next()));
             }
@@ -206,7 +206,7 @@ public class RedisCache implements ICache {
 
     @Override
     public long sSet(String key, String... values) {
-        Long res = redisTemplate.opsForSet().add(key, values);
+        Long res = redisTemplate.opsForSet().add(key, (Object[]) values);
         return res == null ? 0 : res;
     }
 
