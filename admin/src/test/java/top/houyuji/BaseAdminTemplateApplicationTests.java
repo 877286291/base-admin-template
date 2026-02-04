@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EasyAdminApplicationTests {
+class BaseAdminTemplateApplicationTests {
 
     @Test
     void contextLoads() {
     }
 
 }
+

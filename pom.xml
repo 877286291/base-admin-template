@@ -8,10 +8,10 @@
         <version>3.5.10</version>
     </parent>
     <groupId>top.houyuji</groupId>
-    <artifactId>easy-admin</artifactId>
+    <artifactId>base-admin-template</artifactId>
     <version>${revision}</version>
-    <name>easy-admin</name>
-    <description>easy-admin</description>
+    <name>base-admin-template</name>
+    <description>通用后台管理模板（可作为上游模板仓库）</description>
     <packaging>pom</packaging>
     <modules>
         <module>admin</module>
@@ -19,9 +19,12 @@
         <module>modules</module>
     </modules>
     <properties>
-        <!-- 版本号：日期格式，打包时 maven.build.timestamp 为当前构建时间 -->
-        <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
-        <revision>${maven.build.timestamp}</revision>
+        <!--
+          使用 ${revision} 管理内部模块版本（CI-friendly 版本号风格）。
+          默认使用稳定的 SNAPSHOT，避免单模块构建时依赖版本漂移。
+          如需时间戳版本：mvn -Drevision=$(date +%Y%m%d-%H%M%S) ...
+        -->
+        <revision>0.1.0-SNAPSHOT</revision>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

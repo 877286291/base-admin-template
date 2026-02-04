@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
-@ConfigurationProperties(prefix = "easy.admin.tenant")
+@ConfigurationProperties(prefix = "base.admin.tenant")
 public class TenantProperties implements Serializable {
     /**
      * 是否启用租户过滤器,

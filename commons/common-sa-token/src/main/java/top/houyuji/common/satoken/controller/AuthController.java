@@ -15,7 +15,7 @@ import top.houyuji.common.base.R;
 import top.houyuji.common.base.core.UserInfo;
 import top.houyuji.common.base.utils.PasswordUtil;
 import top.houyuji.common.base.utils.StrUtil;
-import top.houyuji.common.cache.core.EasyAdminCache;
+import top.houyuji.common.cache.core.BaseAdminCache;
 import top.houyuji.common.satoken.domain.LoginRequest;
 import top.houyuji.common.satoken.domain.dto.UserInfoDTO;
 import top.houyuji.common.satoken.domain.vo.LoginInfoVo;
@@ -36,7 +36,7 @@ import java.util.Optional;
 public class AuthController {
     private final LoginInfoMapstruct loginInfoMapstruct;
     private final UserLoginService userLoginService;
-    private final EasyAdminCache easyAdminCache;
+    private final BaseAdminCache baseAdminCache;
     private final UserRouterService userRouterService;
 
 
@@ -144,7 +144,7 @@ public class AuthController {
     @Operation(summary = "退出登录")
     public R<String> logout() {
         String loginId = StpUtil.getLoginIdAsString();
-        easyAdminCache.delete("user:" + loginId);
+        baseAdminCache.delete("user:" + loginId);
         StpUtil.logout();
         return R.OK("退出成功");
     }

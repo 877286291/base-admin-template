@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: easy-admin
+    name: base-admin-template
 
 mybatis-plus:
   mapper-locations:

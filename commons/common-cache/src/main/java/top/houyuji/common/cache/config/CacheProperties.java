@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 
-@ConfigurationProperties(prefix = "easy.admin.cache")
+@ConfigurationProperties(prefix = "base.admin.cache")
 @Setter
 @Getter
 public class CacheProperties {
@@ -16,5 +16,5 @@ public class CacheProperties {
     /**
      * 缓存前缀
      */
-    private String prefix = "easy_admin";
+    private String prefix = "base_admin";
 }

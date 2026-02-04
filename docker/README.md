@@ -9,7 +9,7 @@
 mvn package -pl admin -am -DskipTests
 
 # 2. 构建镜像并启动
-cd /path/to/easy-admin
+cd /path/to/base-admin-template
 docker compose -f docker/docker-compose.yml up -d
 ```
 
@@ -22,7 +22,7 @@ docker compose -f docker/docker-compose.yml up -d
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
 | MYSQL_ROOT_PASSWORD | root | MySQL root 密码 |
-| MYSQL_DATABASE | easy_admin | 数据库名 |
+| MYSQL_DATABASE | base_admin | 数据库名 |
 | MYSQL_PORT | 3306 | MySQL 端口 |
 | MYSQL_USER / MYSQL_PASSWORD | root / root | 应用连接 MySQL 的用户与密码 |
 | REDIS_PORT | 6379 | Redis 端口 |

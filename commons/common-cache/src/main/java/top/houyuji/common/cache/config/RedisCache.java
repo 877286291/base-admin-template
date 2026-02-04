@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
-@ConditionalOnProperty(name = "easy.admin.cache.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "base.admin.cache.enabled", havingValue = "true", matchIfMissing = true)
 public class RedisCache implements ICache {
     private final RedisTemplate<String, Object> redisTemplate;
 

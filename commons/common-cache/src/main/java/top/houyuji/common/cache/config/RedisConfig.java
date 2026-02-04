@@ -14,7 +14,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
 @Configuration
-@ConditionalOnProperty(name = "easy.admin.cache.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "base.admin.cache.enabled", havingValue = "true", matchIfMissing = true)
 public class RedisConfig {
 
     private static RedisTemplate<String, Object> getStringObjectRedisTemplate(RedisConnectionFactory redisConnectionFactory, RedisSerializer<?> stringSerializer, Jackson2JsonRedisSerializer<Object> serializer) {

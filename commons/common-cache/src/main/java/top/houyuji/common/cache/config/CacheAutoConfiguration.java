@@ -5,24 +5,24 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import top.houyuji.common.cache.core.EasyAdminCache;
+import top.houyuji.common.cache.core.BaseAdminCache;
 import top.houyuji.common.cache.core.ICache;
 
 
 @Configuration
 @EnableConfigurationProperties(CacheProperties.class)
-@ConditionalOnProperty(prefix = "easy.admin.cache", name = "enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "base.admin.cache", name = "enabled", havingValue = "true", matchIfMissing = true)
 public class CacheAutoConfiguration {
 
 
     @Bean
     @ConditionalOnMissingBean
-    public EasyAdminCache cache(
+    public BaseAdminCache cache(
             ICache redisCache,
             CacheProperties cacheProperties) {
-        EasyAdminCache easyAdminCache = new EasyAdminCache();
-        easyAdminCache.setCache(redisCache);
-        easyAdminCache.setPrefix(cacheProperties.getPrefix());
-        return easyAdminCache;
+        BaseAdminCache baseAdminCache = new BaseAdminCache();
+        baseAdminCache.setCache(redisCache);
+        baseAdminCache.setPrefix(cacheProperties.getPrefix());
+        return baseAdminCache;
     }
 }

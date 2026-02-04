@@ -1,11 +1,11 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: easy-admin-mysql
+    container_name: base-admin-template-mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-easy_admin}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-base_admin}
     volumes:
       - mysql_data:/var/lib/mysql
       - ../docs/sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
@@ -19,7 +19,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: easy-admin-redis
+    container_name: base-admin-template-redis
     restart: unless-stopped
     volumes:
       - redis_data:/data
@@ -33,8 +33,8 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    image: easy-admin:latest
-    container_name: easy-admin-app
+    image: base-admin-template:latest
+    container_name: base-admin-template-app
     restart: unless-stopped
     depends_on:
       mysql:
@@ -44,7 +44,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
       MYSQL_HOST: mysql
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-easy_admin}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-base_admin}
       MYSQL_USER: ${MYSQL_USER:-root}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-root}
       REDIS_HOST: redis

@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_HOST:mysql}:3306/${MYSQL_DATABASE:easy_admin}?serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true
+    url: jdbc:mysql://${MYSQL_HOST:mysql}:3306/${MYSQL_DATABASE:base_admin}?serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:root}
   data:
@@ -24,11 +24,11 @@ logging:
     root: info
     "[top.houyuji]": debug
 
-easy:
+base:
   admin:
     cache:
       enabled: true
-      prefix: "easy_admin"
+      prefix: "base_admin"
 
 sa-token:
   token-name: Authorization

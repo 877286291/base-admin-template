@@ -14,7 +14,7 @@ import org.springframework.core.env.Environment;
 
 @Slf4j
 @Configuration
-public class EasyAdminApp implements ApplicationContextAware, ApplicationRunner {
+public class BaseAdminApp implements ApplicationContextAware, ApplicationRunner {
     private ApplicationContext applicationContext;
 
     /**
@@ -63,3 +63,4 @@ public class EasyAdminApp implements ApplicationContextAware, ApplicationRunner 
         this.applicationContext = applicationContext;
     }
 }
+

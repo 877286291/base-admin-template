@@ -11,8 +11,8 @@ import java.util.Set;
 
 
 @Setter
-public class EasyAdminCache implements ICache {
-    private String prefix = "easy_admin";
+public class BaseAdminCache implements ICache {
+    private String prefix = "base_admin";
 
     private ICache cache;
 
@@ -350,3 +350,4 @@ public class EasyAdminCache implements ICache {
         return cache.lRemove(_key, count, value);
     }
 }
+

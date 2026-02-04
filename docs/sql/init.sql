@@ -1,4 +1,4 @@
--- easy_admin 数据库初始化脚本
+-- base_admin 数据库初始化脚本
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
