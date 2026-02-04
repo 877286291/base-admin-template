@@ -40,10 +40,6 @@ public class JsonUtil {
     private static ObjectMapper get() {
         return new ObjectMapper() {
             {
-                //序列化时候，只序列化非空字段
-                //this.setSerializationInclusion(Inclusion.NON_NULL);
-                //or this.setSerializationConfig(this.getSerializationConfig().withSerializationInclusion(Inclusion.NON_NULL));
-
                 // 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
                 this.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
                 this.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
@@ -67,9 +63,8 @@ public class JsonUtil {
         try {
             return getObjectMapper().writeValueAsString(object);
         } catch (Exception e) {
-//            e.printStackTrace();
+            return "";
         }
-        return "";
     }
 
     /**
@@ -87,9 +82,8 @@ public class JsonUtil {
         try {
             return getObjectMapper().readValue(json, valueType);
         } catch (Exception e) {
-//            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     /**
@@ -108,9 +102,8 @@ public class JsonUtil {
         try {
             return getObjectMapper().readValue(json, typeReference);
         } catch (Exception e) {
-            //e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     /**
@@ -129,9 +122,8 @@ public class JsonUtil {
         try {
             return getObjectMapper().readValue(json, javaType);
         } catch (Exception e) {
-            //e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     /**
@@ -145,10 +137,8 @@ public class JsonUtil {
         try {
             return getObjectMapper().readValue(json, List.class);
         } catch (Exception e) {
-//			e.printStackTrace();
-//			throw new RuntimeException("解析json错误");
+            return null;
         }
-        return null;
     }
 
     public static class ExtJsonUtil extends JsonUtil {

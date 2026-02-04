@@ -85,8 +85,6 @@ public class UserLoginService implements top.houyuji.common.satoken.service.User
         userInfo.setPassword(user.getPassword());
         // 昵称
         userInfo.setNickname(user.getNickname());
-        // 性别
-//        userInfo.setGender(user.getGender());
         // 邮箱
         userInfo.setEmail(user.getEmail());
         // 电话

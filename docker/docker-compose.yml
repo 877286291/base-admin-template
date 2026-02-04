@@ -10,7 +10,7 @@ services:
       - "${MYSQL_PORT:-3306}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ../docs/sql/easy_admin.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ../docs/sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p$${MYSQL_ROOT_PASSWORD}"]

@@ -22,7 +22,7 @@ spring:
 logging:
   level:
     root: info
-    "[top.houyuji]": info
+    "[top.houyuji]": debug
 
 easy:
   admin:
@@ -31,7 +31,7 @@ easy:
       prefix: "easy_admin"
 
 sa-token:
-  token-name: easy_admin
+  token-name: Authorization
   timeout: 86400
   active-timeout: -1
   is-concurrent: true
