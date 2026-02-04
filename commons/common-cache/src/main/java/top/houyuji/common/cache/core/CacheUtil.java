@@ -8,7 +8,6 @@ public interface CacheUtil {
     /**
      * 缓存key的失效时间
      * <p> 不设置失效时间 == 永久有效 ；
-     * XXX: setObject方法设为-1时，经封装后代表永久有效
      * <p> 单位：秒
      */
     int EXPIRE_TIME_DEFAULT = -1;

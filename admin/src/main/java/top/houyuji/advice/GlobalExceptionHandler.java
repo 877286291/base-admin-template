@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
         StringBuilder messageBuilder = new StringBuilder("参数错误: ");
 
         if (e.hasErrors()) {
-            List<ParameterValidationResult> allValidationResults = e.getAllValidationResults();
+            List<ParameterValidationResult> allValidationResults = e.getParameterValidationResults();
 
             // 遍历所有的验证结果
             for (ParameterValidationResult validationResult : allValidationResults) {

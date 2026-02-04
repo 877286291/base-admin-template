@@ -1,0 +1,33 @@
+{
+  "properties": [
+    {
+      "name": "easy.admin.cache.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用缓存",
+      "defaultValue": true
+    },
+    {
+      "name": "easy.admin.cache.prefix",
+      "type": "java.lang.String",
+      "description": "缓存前缀",
+      "defaultValue": "easy_admin"
+    },
+    {
+      "name": "easy.admin.tenant.enable-tenant-interceptor",
+      "type": "java.lang.Boolean",
+      "description": "是否启用租户过滤器",
+      "defaultValue": false
+    },
+    {
+      "name": "easy.admin.tenant.ignore-tables",
+      "type": "java.util.List<java.lang.String>",
+      "description": "非租户表"
+    },
+    {
+      "name": "easy.admin.tenant.tenant-column",
+      "type": "java.lang.String",
+      "description": "租户字段",
+      "defaultValue": "sys_code"
+    }
+  ]
+}

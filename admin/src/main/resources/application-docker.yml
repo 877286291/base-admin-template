@@ -22,7 +22,7 @@ spring:
 logging:
   level:
     root: info
-    top.houyuji: info
+    "[top.houyuji]": info
 
 easy:
   admin:

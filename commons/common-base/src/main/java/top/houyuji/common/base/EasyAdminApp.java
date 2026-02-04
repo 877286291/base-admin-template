@@ -9,10 +9,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 @Slf4j
-public class BootAdminApp implements ApplicationContextAware, ApplicationRunner {
+@Configuration
+public class EasyAdminApp implements ApplicationContextAware, ApplicationRunner {
     private ApplicationContext applicationContext;
 
     /**

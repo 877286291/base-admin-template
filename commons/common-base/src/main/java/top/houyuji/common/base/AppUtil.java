@@ -2,9 +2,9 @@ package top.houyuji.common.base;
 
 import cn.hutool.extra.spring.EnableSpringUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import com.google.common.collect.Maps;
 
 import java.lang.annotation.Annotation;
+import java.util.HashMap;
 import java.util.Map;
 
 @EnableSpringUtil
@@ -20,10 +20,10 @@ public class AppUtil extends SpringUtil {
     public static <T> Map<String, T> getBeansWithAnnotation(Class<? extends Annotation> annotationType,
                                                             Class<T> type) {
 
-        return Maps.transformEntries(
-                SpringUtil.getApplicationContext().getBeansWithAnnotation(annotationType),
-                (key, value) -> type.cast(value)
-        );
+        Map<String, Object> beans = SpringUtil.getApplicationContext().getBeansWithAnnotation(annotationType);
+        Map<String, T> result = new HashMap<>();
+        beans.forEach((key, value) -> result.put(key, type.cast(value)));
+        return result;
     }
 
     /**
