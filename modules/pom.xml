@@ -14,20 +14,15 @@
         <module>biz-module</module>
     </modules>
 
-    <properties>
-        <java.version>21</java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>top.houyuji</groupId>
             <artifactId>common-mybatis-tenant</artifactId>
-            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>top.houyuji</groupId>
             <artifactId>common-sa-token</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>

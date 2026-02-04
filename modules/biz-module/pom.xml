@@ -9,9 +9,6 @@
         <version>${revision}</version>
     </parent>
     <artifactId>biz-module</artifactId>
-    <properties>
-        <java.version>21</java.version>
-    </properties>
     <dependencies>
     </dependencies>
 </project>

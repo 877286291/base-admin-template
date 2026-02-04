@@ -29,23 +29,15 @@
         <dependency>
             <groupId>top.houyuji</groupId>
             <artifactId>common-base</artifactId>
-            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>top.houyuji</groupId>
             <artifactId>common-mybatis-tenant</artifactId>
-            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>top.houyuji</groupId>
             <artifactId>common-cache</artifactId>
-            <version>${revision}</version>
         </dependency>
     </dependencies>
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
 </project>
