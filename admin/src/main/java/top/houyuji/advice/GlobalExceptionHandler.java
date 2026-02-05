@@ -23,7 +23,12 @@ import top.houyuji.common.base.exception.UsernameNotFoundException;
 
 import java.util.List;
 
-import static top.houyuji.common.base.enums.ErrorCodeEnums.*;
+import static top.houyuji.common.base.enums.ErrorCodeEnums.BAD_REQUEST;
+import static top.houyuji.common.base.enums.ErrorCodeEnums.PERMISSION_DENIED;
+import static top.houyuji.common.base.enums.ErrorCodeEnums.RECORD_NOT_FOUND;
+import static top.houyuji.common.base.enums.ErrorCodeEnums.UNKNOWN_ERROR;
+import static top.houyuji.common.base.enums.ErrorCodeEnums.USER_NOT_FOUND;
+import static top.houyuji.common.base.enums.ErrorCodeEnums.USER_NOT_LOGIN;
 
 /**
  * 全局异常处理
@@ -60,7 +65,7 @@ public class GlobalExceptionHandler {
         }
 
         String finalMessage = messageBuilder.toString().trim();
-        return R.NG(finalMessage);
+        return R.NG(BAD_REQUEST.getCode(), finalMessage);
     }
 
 
@@ -80,26 +85,26 @@ public class GlobalExceptionHandler {
                 }
             }
         }
-        return R.NG(message);
+        return R.NG(BAD_REQUEST.getCode(), message);
     }
 
     @ResponseBody
     @ExceptionHandler(value = MissingServletRequestParameterException.class)
     public R<Object> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
-        return R.NG("参数" + e.getParameterName() + "必填");
+        return R.NG(BAD_REQUEST.getCode(), "参数" + e.getParameterName() + "必填");
     }
 
 
     @ResponseBody
     @ExceptionHandler(value = HttpRequestMethodNotSupportedException.class)
     public R<Object> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
-        return R.NG(e.getMessage());
+        return R.NG(BAD_REQUEST.getCode(), e.getMessage());
     }
 
     @ResponseBody
     @ExceptionHandler(value = NoResourceFoundException.class)
     public R<Object> handleNoResourceFoundException(NoResourceFoundException e) {
-        return R.NG(404, "路径" + e.getResourcePath() + "不存在");
+        return R.NG(RECORD_NOT_FOUND.getCode(), "路径" + e.getResourcePath() + "不存在");
     }
 
     @ResponseBody
@@ -130,6 +135,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public R<Object> handleUnknownException(Exception e) {
         log.error("未知异常", e);
-        return R.NG("未知异常，请联系管理员");
+        return R.NG(UNKNOWN_ERROR, null);
     }
 }

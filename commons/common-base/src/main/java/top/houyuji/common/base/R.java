@@ -9,21 +9,13 @@ import java.io.Serializable;
 @Data
 public class R<T> implements Serializable {
     /**
-     * {@code 200 OK} (HTTP/1.0 - RFC 1945)
+     * 业务成功码
      */
-    public static final Integer OK = 200;
+    public static final Integer OK = 0;
     /**
-     * {@code 500 Server Error} (HTTP/1.0 - RFC 1945)
+     * 默认业务失败码（未知异常）
      */
-    public static final Integer INTERNAL_SERVER_ERROR = 500;
-    /**
-     * 默认成功状态码
-     */
-    public static final Integer SUC_0 = 0;
-    /**
-     * 默认失败状态码
-     */
-    public static final Integer SUC_1 = -1;
+    public static final Integer INTERNAL_SERVER_ERROR = 1099;
 
     /**
      * 成功标志
@@ -58,9 +50,11 @@ public class R<T> implements Serializable {
     public R() {
     }
 
-    /***/
+    /**
+     * 成功并携带数据
+     */
     public R(T data) {
-        this.code = SUC_1;
+        this.code = OK;
         this.data = data;
     }
 
@@ -68,11 +62,7 @@ public class R<T> implements Serializable {
     public R(boolean success, String message) {
         this.success = success;
         this.message = message;
-        if (success) {
-            this.code = SUC_0;
-        } else {
-            this.code = SUC_1;
-        }
+        this.code = success ? OK : INTERNAL_SERVER_ERROR;
     }
 
     /**

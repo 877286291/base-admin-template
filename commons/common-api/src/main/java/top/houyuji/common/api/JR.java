@@ -111,7 +111,7 @@ public class JR<T> implements Serializable {
      * @return 接口返回数据:失败
      */
     public static <T> JR<T> fail(String msg) {
-        return fail(SUC_0, msg);
+        return fail(SUC_1, msg);
     }
 
     /**

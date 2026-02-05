@@ -4,6 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum ErrorCodeEnums {
+    // 请求/参数 1000
+    BAD_REQUEST(1000, "请求参数错误"),
     // 系统 1001-1099
     RECORD_NOT_FOUND(1001, "记录不存在"),
     USER_NOT_LOGIN(1002, "用户未登录"),
@@ -15,6 +17,8 @@ public enum ErrorCodeEnums {
     ROLE_NOT_FOUND(1201, "角色不存在"),
     ROLE_IS_BINDING(1202, "角色已被绑定无法删除"),
     ROLE_CODE_EXISTS(1203, "角色编码已存在"),
+    // 系统 1099 未知异常
+    UNKNOWN_ERROR(1099, "未知异常，请联系管理员"),
     // 权限 1301-1399
     ;
     private final Integer code;
