@@ -133,7 +133,7 @@ CREATE TABLE `bas_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='履约端：用户';
 
-INSERT INTO `bas_user` VALUES ('1785229829181005824','1785229829122285568','13111111111','$2a$10$bzGz6zZzAxkN0CRjPf0Pb.CetihWFQo8X6n0oKpZxb1vmxBZVJHIC','管理员','13111111111',NULL,NULL,0,'2024-10-28 08:13:47',NULL,'PA001',1,1,'2024-04-30 16:48:54','superadmin','2024-04-30 18:04:44','superadmin');
+INSERT INTO `bas_user` VALUES ('1785229829181005824','1785229829122285568','admin','$2a$10$bzGz6zZzAxkN0CRjPf0Pb.CetihWFQo8X6n0oKpZxb1vmxBZVJHIC','管理员','13111111111',NULL,NULL,0,'2024-10-28 08:13:47',NULL,'PA001',1,1,'2024-04-30 16:48:54','admin','2024-04-30 18:04:44','admin');
 
 -- ----------------------------
 -- bas_user_role
@@ -283,7 +283,7 @@ CREATE TABLE `sys_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='管理端： 用户';
 
-INSERT INTO `sys_user` VALUES ('1','superadmin','管理员','$2a$10$8FPJCvoFt7YvzVKSWUSg1.tnDDkQGJ5da/F2c2EDfzsbOFAzypQqu',0,'example@example.com','13800000000','https://avatars.githubusercontent.com/u/52290618','2024-10-28 08:52:05',NULL,NULL,'租户-超级管理员',1,1,'2024-03-23 09:17:46','admin','2024-12-02 09:24:07','superadmin');
+INSERT INTO `sys_user` VALUES ('1','admin','管理员','$2a$10$8FPJCvoFt7YvzVKSWUSg1.tnDDkQGJ5da/F2c2EDfzsbOFAzypQqu',0,'example@example.com','13800000000','https://avatars.githubusercontent.com/u/52290618','2024-10-28 08:52:05',NULL,NULL,'租户-超级管理员',1,1,'2024-03-23 09:17:46','admin','2024-12-02 09:24:07','admin');
 
 -- ----------------------------
 -- sys_user_role
