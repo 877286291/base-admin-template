@@ -42,10 +42,12 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- 日志文件的路径及文件名 -->
             <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/${APP_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <!-- 日志文件大小（超过指定大小后，会切分新文件，从索引 0 开始计数，例如：app.2024-01-01.1.log ） -->
+            <!-- 单个日志文件大小（超过指定大小后，会切分新文件，从索引 0 开始计数，例如：app.2024-01-01.1.log ） -->
             <maxFileSize>${FILE_MAX_SIZE}</maxFileSize>
             <!-- 日志保留天数 -->
             <maxHistory>${FILE_MAX_HISTORY}</maxHistory>
+            <!-- 所有归档日志总大小上限，超过后会从最早的归档文件开始删除 -->
+            <totalSizeCap>200MB</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${FILE_LOG_PATTERN}</pattern>
